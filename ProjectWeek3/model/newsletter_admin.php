@@ -1,19 +1,17 @@
 <?php
 /******************************************************
  * Name                        Project
- * Kevin Powell             Week 4 Project
+ * Kevin Powell             Week 5 Project
  * 
  * Last Updated
- * 8/30/2019
- * 9/13/2019
+ * 9/19/2019
  *****************************************************/
-
 try {
-    include './database/database.php';
-    $db = Database::getDB();
+    include '../database/news_database.php';
+    $db = Database2::getDB();
     //echo 'fall through';
 } catch (Exception $ex) {
-echo 'Connection error: ' . $e->getMessage();
+echo 'Connection error: ' . $ex->getMessage();
 }
 ?>
 <!DOCTYPE html>
@@ -26,7 +24,7 @@ echo 'Connection error: ' . $e->getMessage();
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="../styles.css">
 </head>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -40,14 +38,13 @@ echo 'Connection error: ' . $e->getMessage();
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="order.html">Order</a></li>			
-        <li><a href="newsletter.html">Newsletter</a></li>
-        <li><a href="login.php"> Admin</a></li>
-
+       <li class="active"><a href="../view/index.html">Home</a></li>
+        <li><a href="../view/order.html">Order</a></li>			
+        <li><a href="../view/newsletter.html">Newsletter</a></li>
+        <li><a href="../view/login.php"> Admin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="../view/signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         
       </ul>
     </div>
@@ -55,7 +52,7 @@ echo 'Connection error: ' . $e->getMessage();
 </nav>
 <body>
 <div class="company">
-	<img src="images/mobster.png" alt="Mobster">
+	<img src="../images/mobster.png" alt="Mobster">
 	<h1>Untouchables</h1>
 	<p>'Pizza so good, it'll get ya' whacked'</p>
 </div>
@@ -67,28 +64,24 @@ echo 'Connection error: ' . $e->getMessage();
 
     <table>
         <tr>
-            <th>Member ID</th>
-            <th>Full Name</th>
+            
             <th>Email Address</th>
-            <th>Date of Birth</th>
-            <th>Comments</th>
+            <th>Spam</th>
             <th>Delete</th>
         </tr>
         
         <!-- Getting info from data base and storing in table -->
-    <?php foreach ($members as $member) : ?>
+    <?php foreach ($subscribers as $subscriber) : ?>
             <tr>
-                <td><?php echo $member->getID(); ?></td>
-                <td><?php echo $member->getFullName(); ?></td>
-                <td><?php echo $member->getEmailAddress(); ?></td>
-                <td><?php echo $member->getDateOB(); ?></td>
-                <td><?php echo $member->getComments(); ?></td>
+               
+                <td><?php echo $subscriber->getEmailAddress(); ?></td>
+                <td><?php echo $subscriber->getSpam(); ?></td>
       
-                <td><form action="./database/index.php" method="post">
+                <td><form action="../database/news_val.php" method="post">
                     <input type="hidden" name="action"
-                           value="delete_member">
-                    <input type="hidden" name="member_id"
-                           value="<?php echo $member->getID(); ?>">
+                           value="delete_subscriber">
+                    <input type="hidden" name="subscriber_email"
+                           value="<?php echo $subscriber->getEmailAddress(); ?>">
                     <input type="submit" value="Delete">
                     
                 </form></td>
@@ -99,3 +92,4 @@ echo 'Connection error: ' . $e->getMessage();
 </footer>
 </body>
 </html>
+

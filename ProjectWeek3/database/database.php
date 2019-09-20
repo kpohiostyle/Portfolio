@@ -1,10 +1,11 @@
 <?php
 /******************************************************
  * Name                        Project
- * Kevin Powell             Week 4 Project
+ * Kevin Powell             Week 5 Project
  * 
  * Last Updated
  * 9/13/2019
+ * 9/19/2019
  *****************************************************/
 //class to access database through mysql
 class Database {
@@ -21,17 +22,17 @@ class Database {
                                      self::$username,
                                      self::$password);
             } catch (PDOException $e) {
-                $error_message = $e->getMessage();
-                //include('../errors/database_error.php');
-                echo $error_message;
+                //$error_message = $e->getMessage();
+                include('../errors/error_db.php');
                 exit();
+            } 
+            
+            
             }
-        }
         return self::$db;
     }       //function to add a new member to db
         function addMember($full_name, $email_address,$dateOB, $comments){
-        $db = Database::getDB();
-        
+            $db = Database::getDB();
             $query = 'INSERT INTO members
             (fullName, emailAddress, dateOB, Comments)
                 VALUES
@@ -44,7 +45,8 @@ class Database {
             $statement->execute();
             $statement->closeCursor();
             header("Location: ../validation.php");
-    }
+                   }          
+    
             //function to delte member from db
      function deleteMember($member_id) {
         $db = Database::getDB();
@@ -57,6 +59,7 @@ class Database {
         header("Location: ../userChange.php");
     }
 }
+
 //class that loads database info into table
 class Member {
     private $member_id;
@@ -138,8 +141,5 @@ class MemberDB {
 
 $members = memberDB::getMembers();
 
-   
-
-  // Add the product to the database 
 
 ?>

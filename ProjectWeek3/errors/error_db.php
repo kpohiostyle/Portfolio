@@ -1,3 +1,12 @@
+<?php
+/******************************************************
+ * Name                        Project
+ * Kevin Powell             Week 5 Project
+ * 
+ * Last Updated
+ * 9/19/2019
+ *****************************************************/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +17,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="../styles.css">
 </head>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -22,14 +31,13 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="order.html">Order</a></li>			
-        <li><a href="newsletter.html">Newsletter</a></li>
-        <li><a href="login.php"> Admin</a></li>
-
+        <li class="active"><a href="../view/index.html">Home</a></li>
+        <li><a href="../view/order.html">Order</a></li>			
+        <li><a href="../view/newsletter.html">Newsletter</a></li>
+        <li><a href="../view/login.php"> Admin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="../view/signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         
       </ul>
     </div>
@@ -37,10 +45,12 @@
 </nav>
 <body>
 <div class="company">
-	<img src="images/mobster.png" alt="Mobster">
+	<img src="../images/mobster.png" alt="Mobster">
 	<h1>Untouchables</h1>
 	<p>'Pizza so good, it'll get ya' whacked'</p>
 </div>
+<h1>The Gremlins are at it again. We are working on this known issue. Could not connect to Database</h1>
+<img src="../images/gremlin.jpg" alt="" class ="error"/>
 </body>
 <footer>
 
